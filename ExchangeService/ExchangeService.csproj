@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <AssemblyName>BeursKracht.ExchangeService</AssemblyName>
+    <PackageId>BeursKracht.ExchangeService</PackageId>
+    <Authors>BeursKracht.ExchangeService</Authors>
+    <Company>BeursKracht.ExchangeService</Company>
+    <Product>BeursKracht.ExchangeService</Product>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BeursKracht.Infrastructure" Version="3.3.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.0.0" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  exchangeservice:
+    image: exchangeservice
+    build:
+      context: .
+      dockerfile: ExchangeService/Dockerfile
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    volumes:
+      - rabbitmqdata:/var/lib/rabbitmq
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=rabbitmquser
+      - RABBITMQ_DEFAULT_PASS=4L3HDlYM@UTz
+
+volumes:
+  sqlserverdata:
+    external: true    
+  rabbitmqdata:
+    external: true
