@@ -3,6 +3,8 @@ version: '3'
 services:
   exchangeservice:
     image: beurskracht/exchangeservice
+    environment:
+      - PITSTOP_ENVIRONMENT=Production
 
   rabbitmq:
     image: rabbitmq:3-management

@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Pitstop.Infrastructure.Messaging
+namespace BeursKracht.Infrastructure.Messaging
 {
     /// <summary>
     /// RabbitMQ implementation of the MessagePublisher.
