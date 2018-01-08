@@ -2,10 +2,7 @@ version: '3'
 
 services:
   exchangeservice:
-    image: exchangeservice
-    build:
-      context: .
-      dockerfile: ExchangeService/Dockerfile
+    image: beurskracht/exchangeservice
 
   rabbitmq:
     image: rabbitmq:3-management
