@@ -1,16 +1,17 @@
 ﻿using BeursKracht.Infrastructure.Messaging;
 using Microsoft.Extensions.Configuration;
+using OrderEmitter.Events;
 using System;
 using System.IO;
 using System.Threading;
 
-namespace ExchangeService
+namespace OrderEmitter
 {
     class Program
     {
         private static string _env;
         public static IConfigurationRoot Config { get; private set; }
-        
+        private static IMessagePublisher _messagePublisher;
 
         static Program()
         {
@@ -23,35 +24,33 @@ namespace ExchangeService
                 .AddJsonFile("appsettings.json")
                 .AddJsonFile($"appsettings.{_env}.json", optional: false)
                 .Build();
-        }
 
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Starting application...");
-            // get configuration
             var rabbitMQConfigSection = Config.GetSection("RabbitMQ");
             string host = rabbitMQConfigSection["Host"];
             string userName = rabbitMQConfigSection["UserName"];
             string password = rabbitMQConfigSection["Password"];
 
-            RabbitMQMessageHandler messageHandler = new RabbitMQMessageHandler(host, userName, password, "BeursKracht", "", "");
+            _messagePublisher = new RabbitMQMessagePublisher(host, userName, password, "BeursKracht");
+        }
 
-            // start event-handler
-            EventHandler eventHandler = new EventHandler(messageHandler);
-            eventHandler.Start();
+        static void Main(string[] args)
+        {
+            Array orderTypes = Enum.GetValues(typeof(OrderType));
+            Random random = new Random();
 
-            if (_env == "Development")
+            for (int i =0; i < 1000; i++)
             {
-                Console.WriteLine("ExchangeService EventHandler started. Press any key to stop...");
-                Console.ReadKey(true);
-                eventHandler.Stop();
-            }
-            else
-            {
-                while (true)
-                {
-                    Thread.Sleep(10000);
-                }
+                
+                OrderType randomOrderType = (OrderType)orderTypes.GetValue(random.Next(orderTypes.Length));
+                var message = new OrderRegistered(
+                    Guid.NewGuid(), 
+                    random.Next(1, 10).ToString(), 
+                    randomOrderType, 
+                    (decimal)random.Next(1, 10), 
+                    (decimal)random.Next(1, 10));
+
+                _messagePublisher.PublishMessageAsync(MessageTypes.RegisterOrder, message, "");
+                Thread.Sleep(1000);
             }
         }
     }
