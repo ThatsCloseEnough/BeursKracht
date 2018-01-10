@@ -3,6 +3,22 @@ version: '3'
 services:
   exchangeservice:
     image: beurskracht/exchangeservice
+    environment:
+      - BEURSKRACHT_ENVIRONMENT=Production
+    depends_on:
+      - rabbitmq
+    links:
+      - rabbitmq
+
+  orderemitter:
+    image: beurskracht/orderemitter
+    environment:
+      - BEURSKRACHT_ENVIRONMENT=Production
+    depends_on:
+      - rabbitmq
+      - exchangeservice
+    links:
+      - rabbitmq
 
   rabbitmq:
     image: rabbitmq:3-management
@@ -13,7 +29,7 @@ services:
       - "5672:5672"
     environment:
       - RABBITMQ_DEFAULT_USER=rabbitmquser
-      - RABBITMQ_DEFAULT_PASS=4L3HDlYM@UTz
+      - RABBITMQ_DEFAULT_PASS=4L3HDlYM@UTz  
 
 volumes:
   sqlserverdata:

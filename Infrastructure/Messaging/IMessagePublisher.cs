@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Pitstop.Infrastructure.Messaging
+namespace BeursKracht.Infrastructure.Messaging
 {
     public interface IMessagePublisher
     {

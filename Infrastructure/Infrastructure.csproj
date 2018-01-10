@@ -4,7 +4,7 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <AssemblyName>BeursKracht.Infrastructure</AssemblyName>
     <RootNamespace>BeursKracht.Infrastructure</RootNamespace>
-    <Version>3.3.0</Version>
+    <Version>3.4.0</Version>
   </PropertyGroup>
 
   <ItemGroup>

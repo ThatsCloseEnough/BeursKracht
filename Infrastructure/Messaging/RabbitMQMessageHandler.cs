@@ -7,7 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Polly;
 
-namespace Pitstop.Infrastructure.Messaging
+namespace BeursKracht.Infrastructure.Messaging
 {
     public class RabbitMQMessageHandler : IMessageHandler
     {

@@ -12,3 +12,10 @@ cd ExchangeService
 ./RebuildDockerImage.ps1
 cd ..
 
+echo ""
+echo "=============================="
+echo "====== Order Emitter ======"
+echo "=============================="
+cd OrderEmitter
+./RebuildDockerImage.ps1
+cd ..

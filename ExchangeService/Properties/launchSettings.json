@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ExchangeService": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "BEURSKRACHT_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "OrderEmitter": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "BEURSKRACHT_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

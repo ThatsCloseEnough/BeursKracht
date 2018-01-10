@@ -2,7 +2,7 @@
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 
-namespace Pitstop.Infrastructure.Messaging
+namespace BeursKracht.Infrastructure.Messaging
 {
     /// <summary>
     /// Serializer used for all messages.

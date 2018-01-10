@@ -1,4 +1,4 @@
-﻿namespace Pitstop.Infrastructure.Messaging
+﻿namespace BeursKracht.Infrastructure.Messaging
 {
     /// <summary>
     /// Complete list of message types in the system.
@@ -9,17 +9,9 @@
         Unknown, 
 
         // Commands
-        RegisterCustomer,
-        RegisterVehicle,
-        PlanMaintenanceJob,
-        FinishMaintenanceJob,
+        RegisterOrder,
 
         // Events
-        DayHasPassed,
-        CustomerRegistered,
-        VehicleRegistered,
-        WorkshopPlanningCreated,
-        MaintenanceJobPlanned,
-        MaintenanceJobFinished
+        SaleWasMade
     }
 }
