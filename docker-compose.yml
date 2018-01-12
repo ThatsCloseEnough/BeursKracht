@@ -20,6 +20,13 @@ services:
     links:
       - rabbitmq
 
+  walletapi:
+    image: beurskracht/webapi
+    environment:
+      - BEURSKRACHT_ENVIRONMENT=Production
+    depends_on:
+      - rabbitmq
+
   rabbitmq:
     image: rabbitmq:3-management
     volumes:
